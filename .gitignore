@@ -1,0 +1,17 @@
+# JetBrains-related and VSC-related files
+.idea/
+.vscode/
+
+# CMake build files
+cmake-build-debug/
+
+# Files that might be detected as unsafe
+recover_the_password/app.py
+
+# Bash profile
+encoded_message/bash/
+network_dump/bash/
+
+# Unfinished
+ctf_competition/
+jimp_labs/

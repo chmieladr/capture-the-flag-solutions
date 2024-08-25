@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.header button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header button:hover {
+    background-color: #f2f2f2;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tab-button {
+    padding: 14px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 1px solid #007bff;
+    border-radius: 4px 4px 4px 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.tab-button:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.tab-button.active {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+#Table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#Table th, #Table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#Table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#Table input {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: calc(100% - 22px);
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.tab-content.active {
+    display: block;
+}

