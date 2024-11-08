@@ -1,7 +1,3 @@
-# JetBrains-related and VSC-related files
-.idea/
-.vscode/
-
 # CMake build files
 cmake-build-debug/
 
