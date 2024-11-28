@@ -1,6 +1,7 @@
 # PW_CTF_DS 2024-2025
-Subdirectory that contains my step-by-step solutions to tasks from the CTF in "Data Security" course in the field of Applied Computer Science at WUT. 
+Subdirectory containing my step-by-step solutions to CTF challenges served as part of the "Data Security" course at the faculty of Electrical Engineering in Warsaw University of Technology.
 
 ### Used tools
 * Visual Studio Code
 * PyCharm (JetBrains)
+* fastcoll (https://github.com/brimstone/fastcoll.git)
