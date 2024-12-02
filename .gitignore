@@ -1,3 +1,17 @@
 # JetBrains-related and VSC-related files
 .idea/
 .vscode/
+
+# Ignore files produced by LaTeX
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.toc
+
+# Ignore PDFs produced by LaTeX
+# before they're moved outside of working directories
+*/tex/*.pdf

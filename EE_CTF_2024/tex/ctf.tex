@@ -1,0 +1,467 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{paracol}
+
+\geometry{margin=0.5in}
+\setlength{\parindent}{0pt}
+
+\title{\textbf{EE\_CTF}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Coupon for beer}
+That's what we see upon visiting the link provided in the task:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image1.png"}
+
+Page code: \\
+\includegraphics[width=\textwidth]{"image2.png"}
+
+\newpage
+After entering the appropriate code, an image is displayed (it can also be found in the page code):
+\vspace{3mm}
+\begin{multicols}{2}
+    \begin{center}
+        \includegraphics[width=0.33\textwidth]{"image3.jpeg"}
+    \end{center}
+    \columnbreak
+    Image Name:
+    \begin{center}
+        \includegraphics[width=0.33\textwidth]{"image4.png"}
+    \end{center}
+    It is a .jpg file, so there’s a good chance it contains metadata. \\
+    \includegraphics[width=0.44\textwidth]{"image5.png"} \\
+    That's a rather interesting camera model!
+\end{multicols}
+
+Using a BASE64 decoder, we obtain the flag:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image6.png"}
+\vspace{3mm} \\
+\textbf{Flag:} $ EE\_CTF\{mY\_F4v0uR1T3\_3nC0D1nG\_B3wD1P3k41\} $
+
+\newpage
+\section{Recover the Professor's password}
+Code downloaded from the page:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image7.jpeg"}
+
+After replacing the \textit{exec} instructions with \textit{print} and running the program:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image8.jpeg"}
+
+Copy the code and remove all quotation marks. Repeat the replacement of \textit{exec} with \textit{print}:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image9.png"}
+
+Run it again:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image10.png"}
+\vspace{3mm}
+\includegraphics[width=\textwidth]{"image11.png"}
+And we have the flag.
+\vspace{3mm}
+
+\textbf{Flag:} $ EE\_CTF\{R3v3R53\_tH3\_SN4k3\_Aa2f1\_43j2f\} $
+
+\newpage
+\section{Questions Takeover}
+From the task description, we can realise that it’s related to Flask and cookies.
+\vspace{3mm}
+
+Upon visiting the page, we see a login screen:
+\columnratio{0.3}
+\vspace{3mm}
+\begin{paracol}{2}
+    \begin{center}
+        \includegraphics[width=0.9\linewidth]{"image12.jpeg"}
+    \end{center}
+    \switchcolumn
+    After entering any login and password:
+    \vspace{3mm} \\
+    \includegraphics[width=0.9\linewidth]{"image13.png"} \\
+    In the browser, we can also see a new cookie: \\
+    \includegraphics[width=0.9\linewidth]{"image14.png"} \\
+    The cookie data can be retrieved and modified using the \textit{flask-unsign} tool.
+\end{paracol}
+
+\begin{enumerate}[label=\arabic*.]
+    \item Retrieving Data:
+    \vspace{3mm} \\
+    \includegraphics[width=0.9\textwidth]{"image15.png"}
+    \item Change False to True.
+    \item Re-encode the cookie using the password provided in the task:
+    \vspace{3mm} \\
+    \includegraphics[width=0.9\textwidth]{"image16.png"}
+
+\end{enumerate}
+
+Replace the cookie in the browser:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image17.png"}
+
+\begin{center}
+    \includegraphics[width=0.55\textwidth]{"image18.jpeg"}
+\end{center}
+
+\textbf{Flag:} $ EE\_CTF\{K0ch4m\_S0cz3wk1\_Xbc
+HX34UG9YCzTy\} $
+
+\newpage
+\section{Failed Session}
+Upon entering the given address in the browser, we are directed to a login page:
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{"image20.png"}
+\end{center}
+\vspace{3mm}
+
+Basic passwords like \textit{admin} and \textit{password} do not work, and the page source also reveals nothing interesting. When entering an odd character in the username field (e.g., ' or \textbackslash at the end), we see an SQL error:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image21.jpeg"}
+\vspace{3mm}
+
+The error indicates that the system uses a MariaDB database. Let’s try a simple SQL injection trick to force a login.
+\begin{multicols}{2}
+    \begin{center}
+        \includegraphics[width=0.44\textwidth]{"image19.png"}
+    \end{center}
+    \columnbreak
+    Using the following statement in SELECT query:
+    \begin{verbatim}
+        ' or 1=1 limit 1; --
+    \end{verbatim}
+    will always return one result from the database. A key point is the space after --, as MariaDB requires a space before starting a comment.
+\end{multicols}
+
+\includegraphics[width=\textwidth]{"image22.png"}
+\includegraphics[width=\textwidth]{"image23.png"}
+We need to log in specifically to the administrator account. \\
+\includegraphics[width=\textwidth]{"image24.png"}
+\vspace{3mm} \\
+If the student list is connected to the database, it is likely vulnerable to SQL Injection. Let’s use some exploits (found by searching for MariaDB SQL injection or MySQL injection).
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image25.png"}
+\vspace{3mm}
+\includegraphics[width=\textwidth]{"image26.png"}
+\vspace{3mm}
+\includegraphics[width=\textwidth]{"image27.png"}
+\vspace{3mm}
+\includegraphics[width=\textwidth]{"image28.png"}
+\vspace{3mm}
+\includegraphics[width=\textwidth]{"image29.png"}
+\vspace{3mm}
+\includegraphics[width=\textwidth]{"image30.png"}
+\vspace{3mm}
+\includegraphics[width=\textwidth]{"image31.png"}
+\vspace{3mm}
+\includegraphics[width=\textwidth]{"image32.jpeg"}
+
+\newpage
+There is an administrator account named \textit{PanDziekan4432}. Log out and log in again using SQLi:
+\vspace{3mm}
+\begin{multicols}{2}
+    \includegraphics[width=0.44\textwidth]{"image33.png"}
+    \columnbreak \\
+    After logging in, we can access the system controls.
+\end{multicols}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{"image34.png"}
+\end{center}
+\vspace{3mm}
+
+When attempting to edit the list, we see the following message:
+\begin{multicols}{2}
+    \includegraphics[width=0.44\textwidth]{"image35.png"}
+    \columnbreak \\
+    This form is resistant to SQL injection. However, let’s revisit the information from earlier attacks.
+    \vspace{3mm} \\
+    The column storing passwords is called \textit{passwordMD5}. MD5 is a hashing method that is not secure. Let’s use any password-cracking program for MD5-hashed passwords:
+\end{multicols}
+\includegraphics[width=\textwidth]{"image36.jpeg"}
+We found the password: \textit{Applepie123}
+\vspace{3mm} \\
+Upon entering the password on the page, we see a message with the flag:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image37.png"}
+\vspace{3mm}
+
+\textbf{Flag:} $ EE\_CTF\{Jv5T\_4\_5M4Ll\_1nJ3Ct10n\_B3e2AF12\_F34As5\} $
+
+\newpage
+\section{Interesting Blog}
+After visiting the site:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image38.jpeg"}
+\vspace{3mm}
+
+Neither the file names nor the page source reveal anything. Let’s look at the login page:
+\begin{multicols}{2}
+    \begin{center}
+        \includegraphics[width=0.44\textwidth]{"image39.png"}
+    \end{center}
+    \columnbreak
+    The same applies—nothing interesting here. Let’s return to the homepage and search deeper.
+    \vspace{3mm} \\
+    In the footer, there is information about cookies. Let’s check what cookies the browser stores:
+\end{multicols}
+\includegraphics[width=\textwidth]{"image40.png"}
+Heh. Apparently, the professor didn’t have the time or willingness to implement proper authorization with PHP sessions and uses cookies to store login information. Change the value of \textit{loggedin} to 1 and refresh the page. \\
+\includegraphics[width=\textwidth]{"image41.jpeg"}
+Now we can upload files! The site only allows image uploads, but we can change this by removing one attribute in the HTML:
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{"image42.png"}
+    \vspace{3mm} \\
+    \includegraphics[width=0.6\textwidth]{"image43.png"}
+\end{center}
+If the server doesn’t validate files, we can upload any file and execute it. Since the page uses PHP, let’s upload a .php file that allows command execution on the server. Code available on GitHub:
+\begin{verbatim}
+    https://gist.github.com/joswr1ght/22f40787de19d80d110b37fb79ac3985
+\end{verbatim}
+\includegraphics[width=\textwidth]{"image44.jpeg"}
+
+\newpage
+We managed to upload the file. Add its address to the URL:
+\begin{verbatim}
+    /images/test.php
+\end{verbatim}
+\includegraphics[width=\textwidth]{"image45.png"} \\
+We got it! Now let's mess around in the system and see if we can find anything interesting.
+\vspace{3mm} \\
+Using the command \textit{ls ..}:
+\vspace{3mm} \\
+\includegraphics[width=0.2\textwidth]{"image46.png"} \\
+Now using \textit{cat ../s3krEtyT4b0r3TY}:
+\vspace{3mm} \\
+\includegraphics[width=0.5\textwidth]{"image47.png"}
+\vspace{3mm} \\
+\textbf{Flag:} $ EE\_CTF\{t0\_T3n\_C4Ly\_4rB1TrAry\_C0d3\_3xeCVt10n\} $
+
+\newpage
+\section{JiMP Labs}
+The program code contains two visible vulnerabilities – buffer overflow in the \textit{zapisz()} function and printing user input using the \textit{printf()} function in the \textit{debug()} function.
+\vspace{3mm} \\
+The buffer overflow can be exploited to access the \textit{debug()} function.
+\vspace{3mm} \\
+Then, by leveraging the vulnerability in the \textit{printf()} function, it is possible to print the API key loaded into memory.
+\vspace{3mm} \\
+After connecting to the machine via SSH:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image48.png"}
+\vspace{3mm}
+Using GDB and Python, we can create a script that allows us to exploit the buffer overflow.
+\vspace{3mm} \\
+A script to find the padding for the buffer overflow: \vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image49.png"}
+\vspace{3mm}
+\includegraphics[width=\textwidth]{"image50.png"}
+\vspace{3mm}
+\textit{0x55555555}, which is equivalent to \textit{UUUU}. So, our padding has the size: \\
+\includegraphics[width=\textwidth]{"image51.jpeg"}
+\vspace{3mm}
+(There are also less complicated ways to determine the padding). \\
+\includegraphics[width=\textwidth]{"image52.png"}
+The address of the \textit{debug()} function is \textit{0x080491e6}.
+\vspace{3mm} \\
+Let’s test if we can jump to it. To print the raw bytes, we will use the \textit{sys.stdout.buffer.write()} function, providing an 80-byte padding and the address of the \textit{debug()} function written in little-endian format (since it's a 32-bit binary):
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image53.png"}
+It worked! Now, by exploiting the vulnerability in \textit{printf()}, we can print the contents of the stack.
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image54.png"}
+
+From the error message, it seems we likely don’t have access to the files \textit{/home/profesor/flag} or \textit{/home/profesor/log}. GDB won’t help us further since the process doesn’t have the SUID bit set.
+\vspace{3mm} \\
+So, let’s write a simple script that prints the stack contents and run the program with it using SUID.
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{"image55.png"}
+    \vspace{3mm}
+    \includegraphics[width=0.8\textwidth]{"image56.png"}
+    \vspace{3mm}
+\end{center}
+It worked! Now, with the help of any tool that converts ASCII codes to characters, we can extract the flag. However, due to the way the data is stored, this might be tedious:
+\begin{center}
+    \includegraphics[width=0.85\textwidth]{"image57.png"}
+\end{center}
+
+Writing a custom script might be easier:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image58.png"}
+\vspace{3mm}
+\includegraphics[width=\textwidth]{"image59.png"}
+And now we have a flag:
+\vspace{3mm} \\
+\textbf{Flag:} $ EE\_CTF\{0v3RFL0W\_4nD\_f0Rm4T\_5Tr1Ng\} $
+
+\newpage
+\section{Network Dump}
+After downloading the network dump, we can open it in Wireshark:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image60.jpeg"}
+There’s a lot of data here. However, we are only interested in HTTP requests. For this reason, let’s add the filter:
+\begin{verbatim}
+    tcp.port == 80 || udp.port == 80
+\end{verbatim}
+We’re also interested in transferred files, so let’s sort the packets by their size:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image61.jpeg"}
+Let’s see what the largest packet sent via the HTTP protocol contains:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image62.png"}
+A private RSA key. Let’s copy it, format it, and see what we can do with it next.
+
+\newpage
+After logging in via SSH to the machine provided on the site (login: student, password-based login), we can check if there are any other accounts:
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{"image63.png"}
+\end{center}
+Let’s try logging in to the \textit{admin} account using the key:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image64.png"}
+\textbf{Flag:} $ EE\_CTF\{TRZ3BA\_BYLO\_N13\_ISC\_NA\_STUDIA\_TYLKO\_DO\_UCZCIW3J\_PRACY\} $
+
+\newpage
+\section{Encoded message}
+A mistake slipped into the task, and it could be solved with the command:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image65.png"}
+Congratulations to everyone who noticed it for their attentiveness.
+\vspace{3mm} \\
+The intended solution:
+\vspace{3mm} \\
+After running the program, you can notice that the encoded message always has the same size as the message before encoding (and it replaces '\textbackslash n' with 0):
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image66.png"}
+\vspace{3mm}
+\includegraphics[width=\textwidth]{"image67.png"}
+Additionally, at first glance, you can see that the program uses some kind of substitution cipher. Let’s take a look at what Ghidra tells us and rename the obvious variables:
+\begin{multicols}{2}
+    \includegraphics[width=0.44\textwidth]{"image68.png"} \\
+    \columnbreak
+    \includegraphics[width=0.44\textwidth]{"image69.png"}
+\end{multicols}
+\newpage
+\begin{multicols}{2}
+    \includegraphics[width=0.44\textwidth]{"image70.png"} \\
+    \columnbreak
+    \includegraphics[width=0.44\textwidth]{"image71.png"}
+\end{multicols}
+\vspace{10mm}
+\begin{multicols}{2}
+    \includegraphics[width=0.44\textwidth]{"image72.png"} \\
+    \columnbreak
+    \includegraphics[width=0.44\textwidth]{"image73.png"}
+\end{multicols}
+\vspace{10mm}
+In the \textit{encode()} function, the same should be done. After renaming the variables, several things become apparent:
+\vspace{3mm} \\
+\includegraphics[width=0.6\textwidth]{"image74.png"}
+\vspace{3mm} \\
+At the beginning, memory is allocated for the output. Then, from the loop, it becomes clear that the original string is reversed and placed in the output. Finally, a terminating character is added at the end.
+\vspace{3mm}
+\begin{paracol}{2}
+    \includegraphics[width=0.25\textwidth]{"image75.png"}
+    \switchcolumn
+    \includegraphics[width=0.65\textwidth]{"image76.png"}
+\end{paracol}
+\includegraphics[width=0.6\textwidth]{"image77.png"}
+
+From the length of the character string, the "var" value is calculated, and then, depending on the parity of the index, it is added to or subtracted from the current character in the loop.
+\vspace{3mm} \\
+Next, if the character falls within the range <0; 255>, it is placed in the position of the original character. Otherwise, the program terminates and returns NULL.
+\vspace{3mm} \\
+Thus, knowing the length of the original message, we can decrypt it.
+As we know, the original message has the same length as the encrypted one, so 44 bytes (45 - 1, as the last byte is '\textbackslash n', which is replaced with 0).
+\vspace{3mm} \\
+A script to reverse the encryption: \\
+\includegraphics[width=\textwidth]{"image78.png"}
+After providing the file with the message:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image79.png"}
+\vspace{3mm}
+\textbf{Flag:} $ EE\_CTF\{J3dN4\_RoB0OTk4\_mI3Si4C\_W0oDKA\_150419\} $
+
+\newpage
+\section{CTF Competition}
+We don’t have either the username or the password/key to access the server via SSH, so let’s check the website.
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image80.png"}
+The last task is called \textit{Bruteforce}. This might be a clue. Let’s see if there are any hidden files or directories using Gobuster:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image81.jpeg"}
+After navigating to the \textit{/test} page, we can see the following screen:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image82.png"}
+\newpage
+After adding a note, we can see our comment on the page. Let’s check if it’s vulnerable to SSTI:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image83.png"}
+\begin{center}
+    \includegraphics[width=0.2\textwidth]{"image84.png"}
+\end{center}
+It works! Now let’s find out which template engine the site is using. In previous tasks, Apache and Flask were mentioned. Let’s check if the site is running on Flask by entering the following line of Python code:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image85.png"}
+\vspace{3mm}
+\includegraphics[width=\textwidth]{"image86.jpeg"}
+It works. We can now remotely execute code on the server by replacing \textit{id} with a chosen command. Additionally, we know the name of one of the users on the virtual machine: \textit{server}.
+\vspace{3mm} \\
+We can now explore the files, but it would be much easier if we were connected to the server via SSH. Let’s check what’s in the \textit{.ssh} directory: \vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image87.png"}
+Oopsiee, someone forgot to remove the private key after generating it. Let’s try using it to connect to the server. \\
+\includegraphics[width=\textwidth]{"image88.png"}
+Success! Now let’s see what we’re dealing with.
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image89.png"}
+From the first two lines, we can infer (or search online) that the text is encrypted with an Enigma machine. Let’s input the settings and ciphertext into an online decoder:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image90.jpeg"}
+After logging into the admin account with the password karaczan5267, we can find the following file in the home directory:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image91.png"}
+\textbf{\textit{CVE-2019-18634}} is a vulnerability in the sudo program that allows privilege escalation to root.
+\vspace{3mm} \\
+There are many ready-made exploits available online. Let’s copy one of them, compile it, and execute it:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image92.png"}
+If we look at the code, we can notice that one variable differs for Ubuntu and Arch. Our machine is running Arch, so let’s change that value and compile the code.
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image93.png"}
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image94.png"}
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image95.png"}
+Perfect. Now let’s check what we have in the root directory:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image96.png"}
+The \textit{data} directory doesn’t normally appear in the root directory of Linux systems. Moreover, it has very unusual permissions that prevent access to it by anyone other than root.
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image97.png"}
+We found a directory with all the CTF tasks (including our Task 9). Let’s check if there’s a flag inside:
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image98.png"}
+We got it!
+\vspace{3mm} \\
+\textbf{Flag:} $ EE\_CTF\{3L3KtRycZNy\_C4pTVr3\_TH3\_fl4G\_420\} $
+
+\section{Acknowledgments}
+Thank you all for participating in our competition. We hope you had as much fun solving the tasks as we did creating them. If you enjoyed it, stay tuned for updates on ISOD and WRS Facebook pages, as we are planning more cybersecurity competitions.
+\vspace{3mm} \\
+\textit{Have a great rest of the summer!}
+\vspace{3mm} \\
+\textbf{Authors:}
+\begin{itemize}
+    \item Mikołaj Frączek - \textit{https://github.com/milckywayy}
+    \item Bartosz Głażewski - \textit{https://github.com/ATTWGRAT}
+\end{itemize}
+\end{document}
