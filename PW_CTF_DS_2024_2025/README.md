@@ -4,4 +4,5 @@ Subdirectory containing my step-by-step solutions to CTF challenges served as pa
 ### Used tools
 * Visual Studio Code
 * PyCharm (JetBrains)
+* Binary Ninja
 * fastcoll (https://github.com/brimstone/fastcoll.git)
