@@ -1,0 +1,7 @@
+{
+  "2004": {
+    "encrypted": 0,
+    "note": "' + (SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%') + '",
+    "title": "Tables names"
+  }
+}

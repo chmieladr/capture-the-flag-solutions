@@ -1,0 +1,7 @@
+{
+  "2003": {
+    "encrypted": 0,
+    "note": "' + (SELECT id FROM notes LIMIT 1 OFFSET 1) + '",
+    "title": "Second note ID"
+  }
+}

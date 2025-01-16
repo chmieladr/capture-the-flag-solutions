@@ -1,0 +1,8 @@
+sympy
+gmpy2
+pycryptodome>=3.21
+pillow
+flask
+markdown
+bleach
+passlib

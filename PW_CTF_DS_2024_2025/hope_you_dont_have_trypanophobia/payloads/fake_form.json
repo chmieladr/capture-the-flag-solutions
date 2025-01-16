@@ -1,0 +1,7 @@
+{
+  "2013": {
+    "encrypted": 0,
+    "note": "<form action=\"/render\" method=\"post\"> <label for=\"password\">Note password: </label> <input type=\"password\" id=\"password\" name=\"markdown\"> <input type=\"submit\" id=\"decrypt\" value=\"Decrypt note\"> <input type=\"hidden\" id=\"title\" name=\"title\" value=\"note_password\"> <input type=\"checkbox\" id=\"encrypted\" name=\"encrypted\" style=\"display: none;\"> </form>",
+    "title": "Fake form"
+  }
+}

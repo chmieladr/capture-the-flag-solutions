@@ -1,0 +1,7 @@
+{
+  "2012": {
+    "encrypted": 0,
+    "note": "<script>alert()</script>",
+    "title": "XSS Test"
+  }
+}

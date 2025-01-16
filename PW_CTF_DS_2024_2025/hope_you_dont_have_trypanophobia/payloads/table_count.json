@@ -1,0 +1,7 @@
+{
+  "2005": {
+    "encrypted": 0,
+    "note": "' + (SELECT count(*) FROM sqlite_master WHERE type='table') + '",
+    "title": "Tables count"
+  }
+}

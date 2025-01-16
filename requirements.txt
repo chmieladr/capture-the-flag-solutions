@@ -1,4 +1,0 @@
-sympy
-gmpy2
-pycryptodome
-pillow

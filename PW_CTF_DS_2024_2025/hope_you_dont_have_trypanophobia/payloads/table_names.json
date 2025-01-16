@@ -1,0 +1,7 @@
+{
+  "2007": {
+    "encrypted": 0,
+    "note": "' || CAST((SELECT GROUP_CONCAT(name, ', ') FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%') AS TEXT) || '",
+    "title": "Table names"
+  }
+}

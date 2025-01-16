@@ -1,0 +1,43 @@
+<html lang="">
+<body>
+<h1>Hello {{ username }}!</h1>
+
+<form action=/render method="post">
+  <label for="username">Title: </label>
+  <input type="text" id="title" name="title"><br>
+  <label for="markdown">Input some markdown:</label><br>
+  <textarea id="markdown" name="markdown" rows="20" cols="100"></textarea>
+  <br>
+  <br>
+  <input type="checkbox" id="encrypted" name="encrypted">
+  <label for="encrypted">Encrypt note</label>
+  <br>
+  <label for="password">Note password: </label>
+  <input type="password" id="password" name="password">
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+
+
+
+<h1> Your last visits: </h1>
+<ul>
+
+  <li>Date:**:**, **/01/2025, IP:10.**.***.**</li>
+
+</ul>
+
+
+<form action=/backup>
+  <input type="submit" value="Backup notes" />
+</form>
+
+<form action=/restore>
+  <input type="submit" value="Restore notes from backup" />
+</form>
+
+<form action=/logout>
+  <input type="submit" value="Log out" />
+</form>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "2006": {
+    "encrypted": 0,
+    "note": "' || CAST((SELECT note FROM notes) AS TEXT) || '",
+    "title": "Note displayed as text"
+  }
+}
