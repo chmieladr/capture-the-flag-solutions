@@ -3,7 +3,7 @@ import string
 ALPHABET = string.ascii_lowercase + string.digits  # custom alphabet used
 
 if __name__ == "__main__":
-    f1 = open("index.txt", "r")  # reading the input encrypted text
+    f1 = open("container/index.txt", "r")  # reading the input encrypted text
     text = f1.read()
     f1.close()
 

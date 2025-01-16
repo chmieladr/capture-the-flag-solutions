@@ -28,7 +28,7 @@ def extract_mod_and_enc(file_path):
 
 
 if __name__ == "__main__":
-    moduli, ciphers = extract_mod_and_enc("messages")  # retrieving the data from provided file
+    moduli, ciphers = extract_mod_and_enc("container/messages")  # retrieving the data from provided file
 
     for e in range(1, common_exponent):
         M, _ = crt(moduli, ciphers)  # combine ciphertexts using CRT

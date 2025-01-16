@@ -2,7 +2,7 @@ import email
 from email.policy import default
 
 # Load the email file
-with open("download.eml", "r") as f:
+with open("container/download.eml", "r") as f:
     msg = email.message_from_file(f, policy=default)
 
 # Extract the attachment
