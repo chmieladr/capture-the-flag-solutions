@@ -1,4 +1,4 @@
-In this document you can explore all the payloads that were used during the challenge in a more readable form.
+In this document you can explore all the payloads used during the challenge in a more readable form.
 
 > **Note!** Long lines of floors that were used for formatting purposes have been replaced with `\n` for better readability. During the original challenge this escape character didn't work properly, so I had to go for this less convenient solution. Other than that other slight modifications may have been made to make the document even more readable. You can access the original, unchanged payloads in the `payloads` subdirectory.
 
@@ -35,7 +35,7 @@ Internal Server Error
 The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
 ```
 #### Conclusions
-Directly accessing the notes table is not possible, but we can still look for different ways of retrieving the data.
+Directly accessing the `notes` table is not possible, but we can still look for different ways of retrieving the data.
 
 ### `first_note.json`
 ```json
@@ -124,7 +124,7 @@ Printing the number of tables was successful, which means that we can actually a
 ```
 #### Conclusions
 - After manually casting the note as text, we received the note. This means that we can access the `notes` table properly.
-- Looks like the data in here is encrypted, however it's too early to say anything valid about it.
+- It looks like the data in here is encrypted, however it's too early to say anything valid about it.
 
 ### `table_names.json`
 ```json
@@ -202,9 +202,46 @@ Now that we have the column names, we can proceed to dump the data from the tabl
   }
 }
 ```
+#### Output (only `notes` table)
+```
+id | title | username | encrypted | note
+714 | Hoist the colours! | admin | 1 | 950902d52cf09d9c25bc476361119bfd.f0a6f3dfa5163aff51b4bd3123bb20db907a4532b58a9adf331948c787b14883ce87777b9b367a78b95a34ab9c771171696aca7087ed8da47f3496b6d7b55bea
+715 | Notes from meeting 08/01/24 | scotty | 0 |
+We had a solid chat today about our note encryption logic. The hot topic was our combo of AES in CBC mode and PBKDF2 for key derivation. We tossed around a few new ideas for our PBKDF2 salt. Currently our approach looks something like that:
+```
+```python
+key = PBKDF2(note_password, username, 16, count=1000000)
+iv = get_random_bytes(16)
+cipher = AES.new(key, AES.MODE_CBC, iv) 
+note = cipher.encrypt(pad(content, 16))
+```
+```
+Some suggested using some fancy extra data, rather than using the user’s username. After some discussion the team decided to keep it as is. Simple, straightforward, and gets the job done. We were also discussing the idea of adding column to the database which would store IV separately from note content (now we just convert both to hex and concatenate with a dot in between). Luckily boss decided that it would be additional work to me while I work on /restore endpoint, so we postponed it for later.
+
+716 | Ideas for restore endpoint | scotty | 0 |
+Here are some ideas I generated with ChatGPT for implementing restore endpoint:
+```
+```python
+def restore():
+username = current_user.id
+notes =  # get json file from POST request
+
+# put new notes into database (or replace old ones)
+for element in notes:
+    title, encrypted, note = element
+    sql.execute(f"INSERT OR REPLACE INTO notes (username, note, id, encrypted, title) VALUES ('{username}', '{note}', {i}, {encrypted}, '{title}');")
+```
+```
+Doesn’t look too bad.
+
+I was searching StackOverflow as well but everyone was talking about some „sanitization” stuff (must google it later). Why to complicate things while it seems so simple? Stupid...
+```
+
 #### Conclusions
 - We managed to dump the entire database, which means that we now have access to all the data that is stored in it.
-- Both `scotty` and `admin` have very interesting notes. `admin`'s note is encrypted, while `scotty`'s notes aren't, and they also serve a great chunk of information that will come helpful to decrypt the mentioned `admin`'s note.
+- Both `scotty` and `admin` have fascinating notes. `admin`'s note is encrypted, while `scotty`'s notes aren't.
+- We find out how the encryption logic works, which will be very helpful in actually decrypting the message after we gather all the necessary data.
+- Other than that, we also discover the exact query used to insert new notes into the database which lets us know how to properly format our next SQL injection payload.
 
 ### `admin_notes.json`
 ```json
@@ -268,5 +305,5 @@ note_password
 dq1shHUb
 ```
 #### Conclusions
-- The `admin` still thinks he needs to input the password to access the note. However, he doesn't realise it's a fake form that submits the password to the database as a note.
+- The `admin` still thinks he needs to input the password to access the note. However, he doesn't realize it's a fake form that submits the password to the database as a note.
 - This password can be then used to decrypt the note. We can access it by dumping the `notes` of the `admin` again using SQL injection.
