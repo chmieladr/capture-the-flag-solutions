@@ -2,10 +2,13 @@
 Difficulty: Hard
 
 ### 1. Explore the application
-Go through all the available pages in the application after authenticating with the provided credentials. We can quickly find out that there's an option to restore your notes from the backup file that's "experimental".
+Go through all the available pages in the application after authenticating with the provided credentials.
+We can quickly find out that there's an option to restore your notes from the backup file that's "experimental."
 
 ### 2. Check the backup file
-We can simply add some notes in the application and then download the backup file. It's a simple JSON file that contains the notes we've added. It looks in the following way:
+We can simply add some notes in the application and then download the backup file.
+It's a simple JSON file that contains the notes we've added.
+It looks in the following way:
 ```json
 {
   "317": {
@@ -27,7 +30,8 @@ We can simply add some notes in the application and then download the backup fil
 ```
 
 ### 3. Similarities to already used notes
-During the "Data Security in IT systems" course, we've already encountered a similar application. We received it in two different versions:
+During the "Data Security in IT systems" course, we've already encountered a similar application.
+We received it in two different versions:
 - `app_sqli` subdirectory: contains Flask app vulnerable to SQL injection
 - `app_xss` subdirectory: contains Flask app vulnerable to XSS
 This way we can locally look for additional vulnerabilities in the application that might work.
@@ -43,4 +47,6 @@ All the payloads that I've used have been included in the `payloads.md` file.
 **Flag:** `PW{983e5ba50172e631}`
 
 ### 6. Second person to solve the challenge
-I managed to solve this challenge as the second person which I'm totally satisfied with as I consider this task to be the most difficult one in this entire CTF!
+I managed to solve this challenge as the second person which I'm totally satisfied with
+as I consider this task to be the most challenging one in this entire CTF!
+> **Update!** This task ended up being solved by only **three** people in total...

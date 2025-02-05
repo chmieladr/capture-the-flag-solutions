@@ -2,22 +2,28 @@
 Difficulty: Easy
 
 ### 1. Think about possible vulnerabilities of Vigenère's keys
-There are 3 keys:
+There are three keys:
 - max. 3 chars
 - max. 5 chars
 - max. 5 chars
 That results in keys that are all either 1, 2, 3, 4 or 5 chars long. Let's find their least common multiple.
 > LCM(1, 2, 3, 4, 5) = 60
 
-Considering that we don't actually need to know each individual key, we can just find some workaround that will straight up decrypt the entire text. I've determined that LCM as it means our offset of each character will simply loop every 60 chars.
+Considering that we don't need to know each key,
+we can just find some workaround that will straight up decrypt the entire text.
+I've determined that LCM, as it means, our offset of each character will simply loop every 60 chars.
 
-### 2. Let's have a look at English alphabet
+### 2. Let's have a look at the English alphabet
 Source: `https://en.wikipedia.org/wiki/Letter_frequency`
 
-Now I simply have a look at every `60 * i + j` (where `0 < j < 59`) character and determine which one is the most frequent. According to the source provided above, it'll correspond to 'e'. Offset is easily calculated by subtracting one alphabet index from another.
+Now I simply have a look at every `60 * i + j` (where `0 < j < 59`)
+character and determine which one is the most frequent.
+According to the source provided above, it'll correspond to 'e' letter.
+Offset is easily calculated by subtracting one alphabet index from another.
 
 ### 3. Offsets directory
-I personally saved all these offsets to a dictionary that I could later use to rewrite the encrypted text into a brand-new text that doesn't suffer from Vigenère's shenanigans anymore!
+I personally saved all these offsets to a dictionary that I could later use to rewrite the encrypted text
+into a brand-new text that doesn't suffer from Vigenère's shenanigans anymore!
 
 ### 4. Look for either `pwopen` or `close` keyword to find the flag!
 My entire solution written in Python is available in `main.py` file.

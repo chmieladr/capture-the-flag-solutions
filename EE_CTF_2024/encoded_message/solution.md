@@ -3,7 +3,7 @@
 Difficulty: Medium
 
 ### 1. Open the provided program in Binary Ninja
-After that we want to look for the actual code of the program. Here are my findings:
+After that, we want to look for the actual code of the program. Here are my findings:
 ```c
 080491d6  void* encode(char* arg1)
 080491ee      size_t eax = strlen(arg1)
@@ -63,7 +63,7 @@ After that we want to look for the actual code of the program. Here are my findi
 ### 2. Understand how the program works
 It's really helpful to rename the variables to something that will give us a clear idea of what the program does. You can find the result in `encoder.c` file!
 
-However if you don't want to look at that file yet, here's a step-by-step explanation of the process:
+However, if you don't want to look at that file yet, here's a step-by-step explanation of the process:
 * reverse the string
 * calculate a transformation value based on the length
     * formula: `length % 12 * 0x2a2 / 0x11d + 0x113 & 0x1f`

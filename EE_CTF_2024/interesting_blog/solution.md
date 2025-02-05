@@ -18,8 +18,8 @@ You can use this section to upload any file you want to the server.
 > This site doesn't check if you actually uploaded an image or not.
 There are only checks if the file isn't too heavy that aren't a threat for us in this case.
 
-We can use this vulnerability to upload PHP file with code that will be executed in the server.
-While inspecting the website's code I realised that all the files are uploaded to `images` folder.
+We can use this vulnerability to upload a PHP file with code that will be executed in the server.
+While inspecting the website's code, I realized that all the files are uploaded to `images` folder.
 Then let's list all the files in the parent folder.
 ```php
 <?php

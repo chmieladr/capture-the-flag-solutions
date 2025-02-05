@@ -1,7 +1,7 @@
 # Remember CRT Monitors?
 Difficulty: Easy
 
-### 1. Analyse all the given files
+### 1. Analyze all the given files
 The provided files are:
 - `decrypt` - program used to decrypt the messages
 - `encrypt` - program used to encrypt the messages
@@ -10,9 +10,13 @@ The provided files are:
 - `server.py` - Python script used to encrypt the messages using the programs mentioned above
 
 ### 2. (Optional) Decompiling the programs
-To discover how exactly this encryption works, you can use Binary Ninja (or Ghidra) to decompile the provided programs (as it is mentioned these are 64-bits Linux binaries). Then we can use the AI to rewrite the code in a more readable form. 
+To discover how exactly this encryption works, you can use Binary Ninja (or Ghidra) to decompile the provided programs
+(as it is mentioned, these are 64-bit Linux binaries).
+Then we can use the AI to rewrite the code in a more readable form. 
 
-> **Note!** Although I have personally done this step (you can find my results in `decrypt.c` and `encrypt.c` files), I believe this process is fully optional.
+> **Note!**
+> Although I have personally done this step (you can find my results in `decrypt.c` and `encrypt.c` files),
+> I believe this process is fully optional.
 
 ### 3. Analyse `messages` file and the title
 The `messages` file was generated in the following form:
@@ -28,14 +32,18 @@ The `messages` file was generated in the following form:
 ...
 ```
 
-Now let's explain every individual variable in here:
+Now let's explain every variable in here:
 - `kid` - the ID of the message
 - `mod` - the modulus used in the encryption
 - `enc` - the encrypted message
 
-Note that all the plaintext is always the same, along with the exponent used in the encryption. The only thing that changes is the modulus.
+Note that all the plaintext is always the same, along with the exponent used in the encryption.
+The only thing that changes is the modulus.
 
-Other than that the title mentions CRT monitors. This is a hint that the encryption method used in this task is the **Chinese Remainder Theorem**. There's actually a known vulnerability in CRT when the same exponent is used for all the messages. This is the case here.
+Other than that, the title mentions CRT monitors.
+This is a hint that the encryption method used in this task is the **Chinese Remainder Theorem**.
+There's actually a known vulnerability in CRT when the same exponent is used for all the messages.
+This is the case here.
 
 ### 4. Exploiting same `e` with different moduli
 If the same plaintext \( m \) is encrypted using the same \( e \) but different moduli \( n_1, n_2, \dots, n_k \), we get:
@@ -43,12 +51,17 @@ If the same plaintext \( m \) is encrypted using the same \( e \) but different 
 c_1 = m^e \mod n_1, \quad c_2 = m^e \mod n_2, \dots
 \]
 
-This creates a system of modular equations. Then combine the ciphertexts \( c_1, c_2, \dots \) to compute \( M = m^e \mod N \), where \( N = n_1 \cdot n_2 \cdot \dots \cdot n_k \). \( M = m^e \) can then be decrypted by finding the \( e \)-th root of \( M \) using `iroot`.
+This creates a system of modular equations.
+Then combine the ciphertexts \( c_1, c_2, \dots \)
+to compute \( M = m^e \mod N \), where \( N = n_1 \cdot n_2 \cdot \dots \cdot n_k \).
+\( M = m^e \) can then be decrypted by finding the \( e \)-th root of \( M \) using `iroot`.
 
 This is possible because CRT reconstructs \( m^e \) in full, bypassing modulus constraints, allowing recovery of \( m \).
 
 ### 5. Iterating through different exponent values
-The only thing left is to iterate through different exponent values and checking if the decrypted text for given `e` starts with `PW{`. If it does, we have found the flag.
+The only thing left is to iterate through different exponent values
+and check if the decrypted text for given `e` starts with `PW{`.
+If it does, we have found the flag.
 
 ### 6. Result
 e: `17` \
