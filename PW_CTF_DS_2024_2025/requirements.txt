@@ -1,8 +1,8 @@
-sympy
-gmpy2
-pycryptodome>=3.21
-pillow
-flask
-markdown
 bleach
+flask
+gmpy2
+markdown
 passlib
+pillow
+pycryptodome>=3.21
+sympy
