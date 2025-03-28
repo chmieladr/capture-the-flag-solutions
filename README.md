@@ -1,4 +1,4 @@
-# CaptureTheFlag
+# CaptureTheFlag Solutions
 Repository that contains all of my solutions to **Capture The Flag** competitions that I have attended.
 
 ## Files structure
@@ -12,14 +12,15 @@ during the challenge (so you can have a better idea of what I was working with)
 
 ## `utils` directory
 This directory contains some programs/scripts that may come useful during the future challenges.
-They are not directly related to any of the challenges existing in this current repository.
+They are not directly related to any of the challenges existing in this current repository (in most cases).
 
 ### EE_CTF 2024
-CTF that was organized by Electrical Faculty at WUT mostly for Applied Computer Science students during summer holidays.
-I managed to complete six out of nine tasks.
+CTF that was organized by the Faculty of Electrical Engineering in Warsaw University of Technology,
+mostly for Applied Computer Science students during summer holidays. I managed to complete six out of nine tasks.
 
 ### PW_CTF_DS 2024-2025
-CTF organised as a part of "Data Security" course in the field of Applied Computer Science at WUT.
+CTF prepared for "Data Security in IT systems" course as part of my major in Applied Computer Science,
+at the Faculty of Electrical Engineering in Warsaw University of Technology.
 While this challenge wasn't obligatory for all of us to actually participate, it provided juicy additional points,
 and I was totally down for it.
 I have completed all five out of five tasks (excluding the test one as that wasn't really a challenge for anyone).
