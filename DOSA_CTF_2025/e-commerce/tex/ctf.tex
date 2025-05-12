@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{paracol}
+
+\geometry{margin=0.5in}
+\setlength{\parindent}{0pt}
+
+\title{\textbf{DOSA CTF Manual}}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+At the beginning of Open Days, you could have seen a sekurak attacking sekangur, now it's \textbf{your turn}!
+
+\section{Registration for CTF}
+Assuming you're already on the Discord, go to \textit{https://ctf.sekangur.pl/}, where you'll see:
+\begin{center}
+    \includegraphics[width=0.85\textwidth]{"image1.png"}
+\end{center}
+
+This is a list of commands available on the platform. Additionally, at the very bottom of the window, there is a field where you can enter your own command. To access the challenge, you must register by entering the command \textbf{auth} and pressing \textit{Enter}.
+\begin{center}
+    \includegraphics[width=0.85\textwidth]{"image2.png"}
+\end{center}
+
+After pressing \textit{Enter}, you will see a \textbf{Discord} page asking you to confirm access to your account information.
+\begin{center}
+    \includegraphics[width=0.825\textwidth]{"image3.jpeg"}
+\end{center}
+To confirm, click \textit{\textbf{Authorize}}. If you have any doubts - this process does not give control over your account, it only shares the most basic information with Sekangur.
+\vspace{3mm} \\
+After successful authorization, you will return to the CTF platform. To display the available challenges, enter:
+\begin{multicols}{2}
+    \begin{verbatim}
+        ctf list
+    \end{verbatim}
+    \columnbreak
+    \begin{center}
+        \includegraphics[width=0.15\textwidth]{"image4.png"}
+    \end{center}
+\end{multicols}
+
+When the CTF starts, you will see one challenge.
+\vspace{3mm} \\
+\includegraphics[width=\textwidth]{"image5.png"}
+\vspace{0pt}
+
+The description will contain a link to the task, and within the task, there will be multiple flags. Once you find all the flags, submit them using the command:
+\begin{multicols}{2}
+    \begin{verbatim}
+        flag <id zadania> <flaga1_flaga2...>
+    \end{verbatim}
+    \columnbreak
+    \begin{center}
+        \includegraphics[width=0.4\textwidth]{"image6.png"}
+    \end{center}
+\end{multicols}
+
+Press \textit{Enter} to confirm. If you successfully find all the flags, you will see a confirmation and be placed on the leaderboard. \textbf{Congratulations!}
+
+\end{document}
